@@ -136,15 +136,13 @@
             transition: transform 0.2s;
         }
         
-        /* [IMAGE UPDATED] - Rounding Added */
         .card-img-wrap {
             position: relative; width: 100%; height: 200px;
             background: #E5E8EB; flex-shrink: 0;
-            border-radius: 16px; /* [요청사항] 이미지 라운딩 처리 */
+            border-radius: 16px;
             overflow: hidden;
         }
         
-        /* 카드뷰일때만 여백을 주어 라운딩이 잘 보이게 함 (선택사항, 깔끔함을 위해 추가) */
         .biz-list.view-card .card-img-wrap {
              margin: 12px 12px 0 12px;
              width: calc(100% - 24px);
@@ -177,14 +175,14 @@
         .info-row { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-caption); margin-top: 4px; }
         .info-row svg { flex-shrink: 0; vertical-align: middle; }
 
-        /* Actions: CARD View - [수정됨] 균등 분배 */
+        /* Actions: CARD View */
         .card-actions {
             padding: 0 1.25rem 1.25rem;
             display: flex; gap: 10px;
         }
         .btn-action {
-            flex: 1; /* [수정] 모든 버튼 균등 분배 */
-            min-width: 0; /* flex 아이템이 컨텐츠보다 작아질 수 있도록 */
+            flex: 1; 
+            min-width: 0; 
             height: 48px;
             border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
@@ -199,7 +197,6 @@
         }
         .btn-action:active { transform: scale(0.96); }
         
-        /* 카드뷰에서 텍스트 표시 */
         .biz-list.view-card .btn-action .action-text { display: inline; }
 
         /* Actions: LIST View */
@@ -217,7 +214,6 @@
         .biz-list.view-card .list-actions { display: none !important; }
         .biz-list.view-list .biz-card { flex-direction: row; align-items: center; padding: 1rem; gap: 1rem; margin-bottom: 1rem; }
         
-        /* List view image overrides */
         .biz-list.view-list .card-img-wrap { 
             width: 80px; height: 80px; 
             border-radius: 12px; 
@@ -231,11 +227,10 @@
         .biz-list.view-list .card-actions { display: none !important; }
         .biz-list.view-list .list-actions { display: flex; }
 
-        /* Utils */
         .hidden { display: none !important; }
         
         /* ==========================================
-         * PAGINATION REDESIGN (UPDATED)
+         * PAGINATION REDESIGN
          * ==========================================
          */
         .pagination-container {
@@ -244,19 +239,17 @@
         .items-per-page {
             font-size: 0.95rem; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 4px;
         }
-        /* [PAGINATION SELECT STYLE] - Dropdown Styling */
         .pagination-select {
             border: none; color: var(--primary); font-weight: 700; font-size: 0.95rem;
             background: transparent; cursor: pointer; outline: none;
             padding-right: 4px; font-family: inherit; text-align: center;
-            /* [수정됨] 이중 화살표 문제 해결을 위해 기본 스타일 사용 */
         }
         
         .pagination { display: flex; justify-content: center; gap: 8px; align-items: center; }
         .page-btn {
             width: 40px; height: 40px;
             border: none; background: #fff;
-            border-radius: 12px; /* 둥근 사각형 */
+            border-radius: 12px; 
             font-weight: 600; font-size: 0.95rem;
             color: #4B5563;
             cursor: pointer;
@@ -267,7 +260,7 @@
         .page-btn:hover { background: #F9FAFB; }
         .page-btn.active {
             background: var(--primary); color: #fff;
-            box-shadow: 0 4px 12px rgba(91, 78, 250, 0.3); /* 파란색 그림자 */
+            box-shadow: 0 4px 12px rgba(91, 78, 250, 0.3); 
         }
         .page-btn.nav-btn {
             color: #9CA3AF;
@@ -287,10 +280,10 @@
         .fab { 
             position: fixed; bottom: 24px; right: 24px; 
             width: 56px; height: 56px; border-radius: 50%; 
-            background: var(--primary); /* 메인 컬러 적용 */
+            background: var(--primary);
             color: white; border: none; 
             display: flex; align-items: center; justify-content: center; 
-            box-shadow: 0 4px 14px rgba(91, 78, 250, 0.4); /* 컬러 그림자 */
+            box-shadow: 0 4px 14px rgba(91, 78, 250, 0.4); 
             cursor: pointer; z-index: 100; 
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -299,7 +292,7 @@
             box-shadow: 0 6px 20px rgba(91, 78, 250, 0.5);
         }
         .fab:active {
-            transform: scale(0.92); /* 눌림 효과 */
+            transform: scale(0.92); 
         }
         
         /* Modal */
@@ -360,7 +353,7 @@
         }
         .chat-bubble {
             background: #fff; padding: 10px 14px; border-radius: 16px;
-            border-top-left-radius: 4px; /* 말풍선 모양 */
+            border-top-left-radius: 4px; 
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
             max-width: 85%; align-self: flex-start;
             font-size: 0.95rem; line-height: 1.4;
@@ -801,12 +794,19 @@
                 const tags = (b.services || []).slice(0, 2).map(s => `<span class="tag">${s}</span>`).join('');
                 const phoneBtn = b.phone ? `<a href="tel:${b.phone}" class="btn-action">${ICONS.phone}<span class="action-text">전화</span></a>` : "";
                 const mapBtn = b.googleMapsUrl ? `<a href="${b.googleMapsUrl}" target="_blank" class="btn-action">${ICONS.map}<span class="action-text">지도</span></a>` : '';
-                const webBtn = b.website ? `<a href="https://${b.website}" target="_blank" class="btn-action">${ICONS.web}<span class="action-text">웹사이트</span></a>` : '';
+                
+                // [수정] '웹사이트' -> '웹'
+                const webBtn = b.website ? `<a href="https://${b.website}" target="_blank" class="btn-action">${ICONS.web}<span class="action-text">웹</span></a>` : '';
+                
                 const emailBtn = b.email ? `<a href="mailto:${b.email}" class="btn-action">${ICONS.email}<span class="action-text">이메일</span></a>` : '';
                 const allCardActions = [phoneBtn, mapBtn, webBtn, emailBtn].filter(Boolean).join('');
+                
                 const listPhone = b.phone ? `<a href="tel:${b.phone}" class="icon-btn-circle call" title="전화걸기">${ICONS.phoneSmall}</a>` : '';
                 const listMap = b.googleMapsUrl ? `<a href="${b.googleMapsUrl}" target="_blank" class="icon-btn-circle" title="지도보기">${ICONS.mapSmall}</a>` : '';
-                const listWeb = b.website ? `<a href="https://${b.website}" target="_blank" class="icon-btn-circle" title="웹사이트">${ICONS.web}</a>` : '';
+                
+                // [수정] '웹사이트' -> '웹'
+                const listWeb = b.website ? `<a href="https://${b.website}" target="_blank" class="icon-btn-circle" title="웹">${ICONS.web}</a>` : '';
+                
                 const listEmail = b.email ? `<a href="mailto:${b.email}" class="icon-btn-circle" title="이메일">${ICONS.email}</a>` : '';
                 const allListActions = [listPhone, listMap, listWeb, listEmail].filter(Boolean).join('');
 
@@ -840,7 +840,6 @@
             });
         }
 
-        // [PAGINATION RENDERING - NEW DESIGN & LOGIC]
         function renderPagination() {
             const totalPages = Math.ceil(state.filteredData.length / state.itemsPerPage);
             const container = $.paginationSection;
@@ -848,15 +847,12 @@
 
             if (totalPages <= 0) return;
 
-            // 1. Wrapper
             const wrapper = document.createElement('div');
             wrapper.className = 'pagination-container';
 
-            // 2. Items per page label with Dropdown (Select)
             const label = document.createElement('div');
             label.className = 'items-per-page';
             
-            // Create Select Element
             const select = document.createElement('select');
             select.className = 'pagination-select';
             
@@ -868,25 +864,20 @@
                 select.appendChild(opt);
             });
 
-            // Change Event
             select.onchange = (e) => {
                 state.itemsPerPage = parseInt(e.target.value);
-                state.currentPage = 1; // Reset to page 1
+                state.currentPage = 1; 
                 renderResults();
                 renderPagination();
                 window.scrollTo(0,0);
             };
 
-            // Append select to label (No extra SVG injected to fix double arrow)
             label.appendChild(select);
-            
             wrapper.appendChild(label);
 
-            // 3. Button Group
             const btnGroup = document.createElement('div');
             btnGroup.className = 'pagination';
 
-            // Prev Button (<)
             const prevBtn = document.createElement('button');
             prevBtn.className = 'page-btn nav-btn';
             prevBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>';
@@ -894,7 +885,6 @@
             prevBtn.onclick = () => { if(state.currentPage > 1) { state.currentPage--; renderResults(); renderPagination(); window.scrollTo(0,0); }};
             btnGroup.appendChild(prevBtn);
 
-            // Number Logic (1 ... 4 5 6 ... 18)
             const createBtn = (pageNum) => {
                 const btn = document.createElement('button');
                 btn.className = `page-btn ${pageNum === state.currentPage ? 'active' : ''}`;
@@ -913,7 +903,6 @@
             if (totalPages <= 7) {
                 for (let i = 1; i <= totalPages; i++) btnGroup.appendChild(createBtn(i));
             } else {
-                // Always show 1
                 btnGroup.appendChild(createBtn(1));
 
                 if (state.currentPage > 3) {
@@ -934,11 +923,9 @@
                     btnGroup.appendChild(createDots());
                 }
 
-                // Always show last
                 btnGroup.appendChild(createBtn(totalPages));
             }
 
-            // Next Button (>)
             const nextBtn = document.createElement('button');
             nextBtn.className = 'page-btn nav-btn';
             nextBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>';
@@ -977,14 +964,20 @@
             $.alertOkBtn.onclick = closeCustomAlert;
             $.reviewCloseBtn.onclick = () => $.reviewModal.classList.add('hidden');
             
+            // [수정] 리뷰 중복 전송 방지 UI 잠금 처리
             $.reviewSendBtn.onclick = async function() {
                 const text = $.reviewInput.value.trim();
                 if (!text) return;
+
+                if ($.reviewSendBtn.disabled) return;
+
                 const id = state.activeReviewId;
                 const target = businessData.find(b => b.id === id);
                 if (!target) return;
 
-                // [리뷰 전송 상태 알림 로직]
+                $.reviewSendBtn.disabled = true;
+                $.reviewInput.disabled = true;
+
                 showCustomAlert('전송 중', '리뷰를 등록하고 있습니다...', 'loading');
 
                 try {
@@ -993,7 +986,6 @@
                         body: JSON.stringify({ action: 'review', id: id, text: text, uid: USER_UID })
                     });
                     
-                    // 성공 시 데이터 업데이트 및 팝업 변경
                     const newReview = { text: text, date: new Date().toISOString().slice(0, 10), uid: USER_UID };
                     if (!target.reviews) target.reviews = [];
                     target.reviews.unshift(newReview);
@@ -1006,6 +998,9 @@
                     showCustomAlert('성공', '리뷰 등록이 완료되었습니다.');
                 } catch (e) {
                     showCustomAlert('실패', '리뷰 전송에 실패했습니다.');
+                } finally {
+                    $.reviewSendBtn.disabled = false;
+                    $.reviewInput.disabled = false;
                 }
             };
         }
@@ -1015,11 +1010,17 @@
             $.locationNotice.classList.remove('hidden');
             $.locationNotice.innerHTML = `<span>내 주변 가까운 업체 찾기</span><button class="btn-xs" id="btn-loc">허용</button>`;
             
-            // [수정됨] 클릭 시 즉시 텍스트 변경하여 딜레이 인지 문제 해결
             document.getElementById('btn-loc').onclick = function() {
                 const btn = this;
-                btn.textContent = '확인 중...'; // 즉각적인 시각 피드백
-                btn.disabled = true;          // 중복 클릭 방지
+                btn.textContent = '확인 중...';
+                btn.disabled = true;
+
+                // [수정] 안드로이드 위치 로딩 최적화 옵션 추가
+                const geoOptions = {
+                    enableHighAccuracy: false,
+                    timeout: 8000,
+                    maximumAge: 300000
+                };
 
                 navigator.geolocation.getCurrentPosition(pos => {
                     state.userLocation = { latitude: pos.coords.latitude, longitude: pos.coords.longitude };
@@ -1030,11 +1031,10 @@
                     showCustomAlert('알림', '📍 이제 거리순 정렬이 가능해요');
                     handleFilterChange();
                 }, (err) => {
-                    // 에러 발생 시 버튼 복구 (멈춤 방지)
                     btn.textContent = '허용';
                     btn.disabled = false;
                     showCustomAlert('알림', '위치 정보를 가져올 수 없습니다.');
-                });
+                }, geoOptions);
             };
         }
 
